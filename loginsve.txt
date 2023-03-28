@@ -1,0 +1,116 @@
+<?php
+			@session_start();
+			if (empty($_SESSION['username']))
+			{
+				echo "
+				<ul class='agile_forms'>
+				<li><a class='active' href='#' data-toggle='modal' data-target='#myModal2'><i class='fa fa-sign-in' aria-hidden='true'></i> Masuk </a> </li>
+				<li><a href='#' data-toggle='modal' data-target='#myModal3'><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Daftar </a> </li>
+				</ul>";
+			}
+			else
+			{
+				if ($_SESSION['level'] == "admin")
+				{
+				echo "
+						
+						<ul class='agile_forms'>
+							<div class='dropdown'>
+							<button class='btn btn-success dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+							$_SESSION[username] <span class='caret'></span>
+							</button>
+							<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+							<table class='table'>
+								<tr>
+									<td><a class='dropdown-item' href='Admin'>Menu Admin</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/akun.php'>Akun</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/murid.php'>Murid</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/guru.php'>Guru</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/Nilai.php'>Nilai</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/pesan.php'>Email</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='Admin/mata_pelajaran.php'>Mata Pelajaran</a></td>
+								</tr>
+																
+								<tr>
+									<td><a class='dropdown-item' href='logout.php'>Logout</a></td>
+								</tr>
+							</table>
+							</div>
+							</div>
+						</ul>
+						
+					 ";
+				}
+				else if ($_SESSION['level'] == "guru")
+				{
+				echo "
+						
+						<ul class='agile_forms'>
+							<div class='dropdown'>
+							<button class='btn btn-success dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+							$_SESSION[username] <span class='caret'></span>
+							</button>
+							<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+							<table class='table'>
+								<tr>
+									<td><a class='dropdown-item' href='Guru'>Input Nilai</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='logout.php'>Logout</a></td>
+								</tr>
+							</table>
+							</div>
+							</div>
+						</ul>
+						
+					 ";
+				}
+				else
+				{
+				echo "
+						
+						<ul class='agile_forms'>
+							<div class='dropdown'>
+							<button class='btn btn-success dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+							$_SESSION[username] <span class='caret'></span>
+							</button>
+							<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+							<table class='table'>
+								<tr>
+									<td><a class='dropdown-item' href='Murid'>Cek Nilai</a></td>
+								</tr>
+								
+								<tr>
+									<td><a class='dropdown-item' href='logout.php'>Logout</a></td>
+								</tr>
+							</table>
+							</div>
+							</div>
+						</ul>
+						
+					 ";
+				}
+				
+			}
+			?>
+			
+			
